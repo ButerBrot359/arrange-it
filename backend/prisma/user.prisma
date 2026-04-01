@@ -1,0 +1,13 @@
+enum Role { 
+  USER 
+  ADMIN 
+} 
+
+model User {
+  id    Int      @default(autoincrement()) @id
+  email String?  @unique
+  name  String?
+  phone String?  @unique
+  role  Role     @default(USER)
+  bookings Booking[]
+}
