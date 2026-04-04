@@ -1,0 +1,18 @@
+enum TableStatus {
+    FREE
+    PARTIALLY_RESERVED
+    RESERVED
+    UNAVAILABLE
+}
+
+model Table {
+    id           String      @id @default(uuid())
+    bookings     Booking[]
+    restaurant   Restaurant  @relation(fields: [restaurantId], references: [id])
+    restaurantId String
+    number       Int
+    capacity     Int
+    status       TableStatus
+
+    @@unique([number, restaurantId])
+}

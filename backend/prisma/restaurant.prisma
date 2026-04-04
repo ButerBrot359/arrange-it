@@ -1,0 +1,9 @@
+model Restaurant {
+  id        String   @id @default(uuid())
+  tables    Table[]
+  staff     User[]
+  address   String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
